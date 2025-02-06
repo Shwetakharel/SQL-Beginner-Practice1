@@ -22,9 +22,9 @@ Select DISTINCT job_id,job_title_short,job_location,job_via, salary_year_avg fro
 /* 8. In the job_postings_fact table only get jobs that have an average salary of $65000 or greater. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
 Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg >= 65000 order by 5;
  
- /* 8. In the job_postings_fact table only get jobs that have an average yearly salary greater than $55000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
+ /* 9. In the job_postings_fact table only get jobs that have an average yearly salary greater than $55000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
 Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg > 55000 order by 5;
  
- /* 9. In the job_postings_fact table only get jobs that have an average yearly salary less than $110000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
+ /* 10. In the job_postings_fact table only get jobs that have an average yearly salary less than $110000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
  Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg < 110000 order by 5 desc;
  
