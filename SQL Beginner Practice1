@@ -1,0 +1,18 @@
+/* Get the unique (distinct ) job locations in the job_postings_fact table.
+Order in alphabetical order(ascending order)*/
+
+Select distinct job_location from job_postings_fact
+order by 1;
+
+/*In the job_postings_fact table get the columns job_id , job_title_short, job_location
+ and job_via columns .And order it in ascending order by job_location*/
+
+Select distinct job_id , job_title_short,job_location, job_via from job_postings_fact
+order by 3;
+
+/*In the job_postings_fact table get the columns job_id,job_title_short,job_location,
+job_via and salary_year_avg columns. And only look at rows where job_title_short is 
+'Data Engineer'*/
+Select job_id,job_title_short,job_location,job_via, salary_year_avg from 
+job_postings_fact 
+where job_title_short='Data Engineer'  order by 5;
