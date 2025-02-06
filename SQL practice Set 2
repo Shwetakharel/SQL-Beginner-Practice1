@@ -1,0 +1,11 @@
+/* 1. Get job details for BOTH 'Data Analyst' or 'Business Analyst' positions. 
+For 'Data Analyst', I want jobs only >$100k .For 'Business Analyst;, I only want jobs >$70k
+Only include jobs located in EITHER : 'Boston, MA' , Anywhere (i.e., Remote jobs)*/
+
+Select distinct job_title_short,job_location, job_schedule_type,job_via,salary_year_avg from job_postings_fact 
+where job_location in ('Boston, MA','Anywhere') and 
+(
+(job_title_short='Data Analyst' AND  salary_year_avg >100000 )
+OR (job_title_short='Business Analyst' AND  salary_year_avg >70000)
+) 
+order by 1,5;
