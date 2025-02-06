@@ -1,18 +1,30 @@
-/* Get the unique (distinct ) job locations in the job_postings_fact table.
-Order in alphabetical order(ascending order)*/
+/* 1. Get the unique (distinct ) job locations in the job_postings_fact table.Order in alphabetical order(ascending order)*/
+Select distinct job_location from job_postings_fact order by 1;
 
-Select distinct job_location from job_postings_fact
-order by 1;
+/* 2. In the job_postings_fact table get the columns job_id , job_title_short, job_location and job_via columns .And order it in ascending order by job_location*/
+Select distinct job_id , job_title_short,job_location, job_via from job_postings_fact order by 3;
 
-/*In the job_postings_fact table get the columns job_id , job_title_short, job_location
- and job_via columns .And order it in ascending order by job_location*/
+/* 3. In the job_postings_fact table get the columns job_id,job_title_short,job_location,job_via and salary_year_avg columns. And only look at rows where job_title_short is 'Data Engineer'*/
+Select job_id,job_title_short,job_location,job_via, salary_year_avg from job_postings_fact where job_title_short='Data Engineer'  order by 5;
 
-Select distinct job_id , job_title_short,job_location, job_via from job_postings_fact
-order by 3;
+/* 4. In the job_postings_fact table get the job_id, job_title_short, job_location, job_via and salary_year_avg columns. oNly return rows where the job location is in 'Tampa, FL'*/
+Select DISTINCT job_id,job_title_short,job_location,job_via, salary_year_avg from job_postings_fact where job_location='Tampa, FL' order by 5;
 
-/*In the job_postings_fact table get the columns job_id,job_title_short,job_location,
-job_via and salary_year_avg columns. And only look at rows where job_title_short is 
-'Data Engineer'*/
-Select job_id,job_title_short,job_location,job_via, salary_year_avg from 
-job_postings_fact 
-where job_title_short='Data Engineer'  order by 5;
+/* 5.In the job_postings_fact table get the job_id, job_title_short,job_location,job_via and salary_year_avg columns. Only return 'Full-Time' jobs */
+Select DISTINCT job_id,job_title_short,job_location,job_via, salary_year_avg from job_postings_fact where job_schedule_type='Full-Time'order by 5;
+
+/* 6. In the job_postings_fact table get the job_id, job_title_short,job_location,job_via and salary_year_avg columns. Only look at jobs that are not 'Part-time' jobs*/
+Select DISTINCT job_id,job_title_short,job_location,job_via, salary_year_avg from job_postings_fact where job_schedule_type<>'Part-Time'order by 5;
+
+/* 7. In the job_postings_fact table get the job_id, job_title_short,job_location,job_via and salary_year_avg columns. Only look at jobs that are not 'via LinkedIn' jobs */
+Select DISTINCT job_id,job_title_short,job_location,job_via, salary_year_avg from job_postings_fact where job_schedule_type<>'via LinkedIn'order by 5;
+
+/* 8. In the job_postings_fact table only get jobs that have an average salary of $65000 or greater. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
+Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg >= 65000 order by 5;
+ 
+ /* 8. In the job_postings_fact table only get jobs that have an average yearly salary greater than $55000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
+Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg > 55000 order by 5;
+ 
+ /* 9. In the job_postings_fact table only get jobs that have an average yearly salary less than $110000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
+ Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg < 110000 order by 5 desc;
+ 
