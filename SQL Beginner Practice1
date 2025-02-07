@@ -28,9 +28,9 @@ Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg fr
  /* 10. In the job_postings_fact table only get jobs that have an average yearly salary less than $110000. Also get the job_id,job_title_short, job_location, job_via and salary_year_avg columns*/
  Select distinct job_id,job_title_short, job_location, job_via,salary_year_avg from job_postings_fact where salary_year_avg < 110000 order by 5 desc;
  
-/*In the company_dim table find all company names that incluse 'Tech' immediately followed by any single character. Return the name column*/
+/* 11. In the company_dim table find all company names that incluse 'Tech' immediately followed by any single character. Return the name column*/
 Select distinct name from company_dim where name like 'Tech_';
 
- /*Find all the job postings in the job_postings_fact where the job_title is exactly "Engineer" and one character followed after the term. get the job_id,job_title and job_posted_date*/
+ /* 12. Find all the job postings in the job_postings_fact where the job_title is exactly "Engineer" and one character followed after the term. get the job_id,job_title and job_posted_date*/
 Select job_id,job_title,job_posted_date from job_postings_fact where job_title like 'Engineer_';
  
