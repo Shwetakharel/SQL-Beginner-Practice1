@@ -9,3 +9,13 @@ where job_location in ('Boston, MA','Anywhere') and
 OR (job_title_short='Business Analyst' AND  salary_year_avg >70000)
 ) 
 order by 1,5;
+
+/*Look for non-senior data analyst or business analyst roles
+a. Only get job titles that include either 'Data' or 'Business'
+b. Also include those with 'Analyst' in any part of the title 
+c. Don't include any job titles with 'Senior' followed by any character
+Get the job_title, location, and average yearly salary*/
+
+Select distinct job_title,job_location as location,salary_year_avg as salary from job_postings_fact
+where (job_title like '%Data%Analyst%' or job_title like '%Business%Analyst%')
+and job_title not like '%Senior%';
