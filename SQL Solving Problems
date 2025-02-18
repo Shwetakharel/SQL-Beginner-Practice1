@@ -29,3 +29,10 @@ sum(salary_year_avg)/Count(salary_year_avg) as total_average_yearly_salary
 from job_postings_fact
 where job_work_from_home=True and 
 salary_year_avg is not Null; 
+
+/*In the job_postings_fact table count the total number of job postings that offer health insurance. Use the job_health_insurance column to determine if a job
+posting offers health insurance(TRUE means it does not offer health insurance*/
+
+Select count(job_id) as total_number_of_job_postings
+from job_postings_fact
+where job_health_insurance=FALSE;
