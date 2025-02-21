@@ -20,19 +20,4 @@ Select distinct job_title,job_location as location,salary_year_avg as salary fro
 where (job_title like '%Data%Analyst%' or job_title like '%Business%Analyst%')
 and job_title not like '%Senior%';
 
-/*In the job_postings_fact table calculate the total sum of the average yearly salary (salary_year_avg) for all job postings that are marked as fully remote
-(job_work_from_home i.e True) and divide it by the total count of salary_year_avg.To get the total average yearly salary for fully remote jobs. Ensure to only include 
-job postings where a yearly salary is specified(i.e salary_year_avg is not NULL)*/
 
-Select sum(salary_year_avg) as Sum_of_average_year_salary,Count(salary_year_avg) as count_average_year_salary,
-sum(salary_year_avg)/Count(salary_year_avg) as total_average_yearly_salary
-from job_postings_fact
-where job_work_from_home=True and 
-salary_year_avg is not Null; 
-
-/*In the job_postings_fact table count the total number of job postings that offer health insurance. Use the job_health_insurance column to determine if a job
-posting offers health insurance(TRUE means it does not offer health insurance*/
-
-Select count(job_id) as total_number_of_job_postings
-from job_postings_fact
-where job_health_insurance=FALSE;
