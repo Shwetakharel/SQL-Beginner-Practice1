@@ -55,3 +55,11 @@ Select count(job_id) as total_number_of_job_postings from job_postings_fact wher
 of job postings (job_id) within each country group.*/
 
 Select job_country, count(job_id) as total_number_of_job_postings from job_postings_fact group by job_country order by 2 desc;
+
+/*Identify all job postings that have neither an annual average salary(salary_year_avg) nor an hourly average salary(salary_hour_avg) in the job_postings_fact table. Return the 
+job_id, job_title,salary_year_avg,salary_hour_avg. This can be useful to look at postings where there's no competition*/
+
+Select job_id,job_title,salary_year_avg,salary_hour_avg from job_postings_fact
+where (salary_year_avg is null and salary_hour_avg is null) 
+order by 3 , 4 ;
+
